@@ -29,16 +29,16 @@
       const APP_URL='https://script.google.com/macros/s/AKfycbx_JUFxY9sRDY-BOcDpDsmb5DMDrifWXJeswavJRTbKYeLUEN6dbQYYY6aBYTS-a0rH-w/exec';
       const params=new URLSearchParams(window.location.search);
       const install=params.get('install')==='1';
-      const standalone=window.navigator.standalone===true || window.matchMedia('(display-mode: standalone)').matches;
 
-      if (!install || standalone) {
-        window.location.replace(APP_URL);
+      if (install) {
+        history.replaceState(null, '', '/');
+        window.addEventListener('DOMContentLoaded',()=>{
+          document.body.style.display='grid';
+        });
         return;
       }
 
-      window.addEventListener('DOMContentLoaded',()=>{
-        document.body.style.display='grid';
-      });
+      window.location.replace(APP_URL);
     })();
   </script>
 </head>
