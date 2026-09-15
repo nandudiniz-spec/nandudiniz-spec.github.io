@@ -15,38 +15,74 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png?v=4">
   <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/icon-180.png?v=4">
   <style>
-    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17334a;background:#f7f9fc}
+    :root{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#f7f9fc;
+      color:#17334a;
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:#f7f9fc}
-    body{min-height:100svh;display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom))}
-    main{width:min(420px,100%);text-align:center}
-    img{width:112px;height:112px;border-radius:24px;box-shadow:0 12px 32px rgba(11,47,75,.18)}
-    h1{margin:20px 0 8px;font-size:30px}
-    p{margin:0 0 18px;line-height:1.45;color:#496273}
-    .hint{padding:14px 16px;border-radius:14px;background:#fff;border:1px solid #dce6ec;text-align:left}
-    a{display:block;margin-top:16px;padding:14px 18px;border-radius:14px;background:#0b5f7c;color:white;text-decoration:none;font-weight:700}
-    #launching{display:none}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f7f9fc}
+    body{position:fixed;inset:0}
+    #app-shell{
+      position:fixed;
+      top:env(safe-area-inset-top,0px);
+      right:0;
+      bottom:env(safe-area-inset-bottom,0px);
+      left:0;
+      overflow:hidden;
+      background:#f7f9fc;
+    }
+    #anqui-app{
+      display:block;
+      width:100%;
+      height:100%;
+      border:0;
+      background:#f7f9fc;
+    }
+    #loading{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      display:grid;
+      place-items:center;
+      background:#f7f9fc;
+      transition:opacity .18s ease,visibility .18s ease;
+    }
+    #loading.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .loading-card{text-align:center;padding:28px}
+    .loading-card img{
+      width:88px;
+      height:88px;
+      border-radius:20px;
+      box-shadow:0 10px 28px rgba(11,47,75,.16);
+    }
+    .loading-card p{margin:16px 0 0;font-size:17px;color:#496273}
   </style>
 </head>
 <body>
-  <main>
-    <img src="/icon-180.png?v=4" alt="Anqui">
-    <h1>Anqui</h1>
-    <div id="install">
-      <p>Adicione esta página à Tela de Início para instalar o Anqui com o ícone correto.</p>
-      <p class="hint"><strong>No Safari:</strong> Compartilhar → Adicionar à Tela de Início.<br><br>Se já existir um atalho antigo com miniatura estranha, apague esse atalho antes de adicionar novamente.</p>
-      <a id="openNow" href="https://script.google.com/macros/s/AKfycbx_JUFxY9sRDY-BOcDpDsmb5DMDrifWXJeswavJRTbKYeLUEN6dbQYYY6aBYTS-a0rH-w/exec">Abrir Anqui agora</a>
+  <div id="app-shell">
+    <div id="loading" aria-live="polite">
+      <div class="loading-card">
+        <img src="/icon-180.png?v=4" alt="Anqui">
+        <p>Abrindo Anqui…</p>
+      </div>
     </div>
-    <div id="launching"><p>Abrindo Anqui…</p></div>
-  </main>
+    <iframe
+      id="anqui-app"
+      title="Anqui"
+      src="https://script.google.com/macros/s/AKfycbx_JUFxY9sRDY-BOcDpDsmb5DMDrifWXJeswavJRTbKYeLUEN6dbQYYY6aBYTS-a0rH-w/exec?embedded=1"
+      allow="clipboard-read; clipboard-write"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </div>
   <script>
-    const APP_URL='https://script.google.com/macros/s/AKfycbx_JUFxY9sRDY-BOcDpDsmb5DMDrifWXJeswavJRTbKYeLUEN6dbQYYY6aBYTS-a0rH-w/exec';
-    const standalone=window.navigator.standalone===true || window.matchMedia('(display-mode: standalone)').matches;
-    if(standalone){
-      document.getElementById('install').style.display='none';
-      document.getElementById('launching').style.display='block';
-      setTimeout(()=>window.location.replace(APP_URL),80);
-    }
+    (() => {
+      const frame = document.getElementById('anqui-app');
+      const loading = document.getElementById('loading');
+      frame.addEventListener('load', () => {
+        window.setTimeout(() => loading.classList.add('hidden'), 120);
+      }, { once: true });
+    })();
   </script>
 </body>
 </html>
