@@ -1,25 +1,20 @@
 {
+  "id": "/",
   "name": "Anqui",
   "short_name": "Anqui",
   "description": "Anqui — repetição espaçada",
   "start_url": "/",
   "scope": "/",
-  "display": "standalone",
+  "display": "browser",
   "orientation": "any",
   "background_color": "#f7f9fc",
   "theme_color": "#0b2f4b",
   "icons": [
     {
-      "src": "/icon-180.png?v=2",
+      "src": "/icon-180.png?v=4",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/icon.svg?v=2",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
     }
   ]
 }
