@@ -5,7 +5,7 @@
   "description": "Anqui — repetição espaçada",
   "start_url": "/",
   "scope": "/",
-  "display": "standalone",
+  "display": "browser",
   "orientation": "any",
   "background_color": "#f7f9fc",
   "theme_color": "#0b2f4b",
