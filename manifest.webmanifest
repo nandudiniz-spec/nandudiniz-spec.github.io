@@ -1,0 +1,19 @@
+{
+  "name": "Anqui",
+  "short_name": "Anqui",
+  "description": "Anqui — repetição espaçada",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f9fc",
+  "theme_color": "#0b2f4b",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
