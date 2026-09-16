@@ -1,7 +1,7 @@
 {
-  "name": "Anqui",
-  "short_name": "Anqui",
-  "description": "Anqui — repetição espaçada",
+  "name": "Anqui Memory",
+  "short_name": "Anqui Memory",
+  "description": "Anqui Memory — repetição espaçada",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -1,25 +1,21 @@
-{
-  "name": "Anqui Memory",
-  "short_name": "Anqui Memory",
-  "description": "Anqui Memory — repetição espaçada",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "#f7f9fc",
-  "theme_color": "#0b2f4b",
-  "icons": [
-    {
-      "src": "/icon-180.png?v=4",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon.svg?v=2",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
-}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173f39"/>
+      <stop offset="1" stop-color="#276c60"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0b2924" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g filter="url(#s)">
+    <rect x="119" y="121" width="274" height="214" rx="38" fill="#dcece8" opacity=".38" transform="rotate(-8 256 228)"/>
+    <rect x="119" y="145" width="274" height="214" rx="38" fill="#b8d9d1" opacity=".72" transform="rotate(5 256 252)"/>
+    <rect x="119" y="169" width="274" height="214" rx="38" fill="#fff"/>
+  </g>
+  <path d="M256 246v54M256 300l-62 48M256 300l62 48" fill="none" stroke="#276c60" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="232" r="23" fill="#13a6a6"/>
+  <circle cx="194" cy="348" r="23" fill="#276c60"/>
+  <circle cx="318" cy="348" r="23" fill="#276c60"/>
+</svg>
