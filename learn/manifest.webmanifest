@@ -4,7 +4,7 @@
   "description": "Anqui Learn — aprendizagem guiada e evidências",
   "start_url": "/learn/",
   "scope": "/learn/",
-  "display": "standalone",
+  "display": "browser",
   "orientation": "any",
   "background_color": "#f4f7f6",
   "theme_color": "#173f39",
